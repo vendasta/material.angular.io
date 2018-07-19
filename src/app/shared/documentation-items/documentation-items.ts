@@ -235,7 +235,19 @@ const DOCS: {[key: string]: DocCategory[]} = {
             // 'table-sticky-header',
         ]},
       ]
-    }
+    },
+    {
+      id: 'va',
+      name: 'Vendasta',
+      summary: 'Vendasta components',
+      items: [
+        {
+          id: 'va-icon',
+          name: 'VaIcon',
+          packageName: 'vendasta'
+        },
+      ]
+    },
   ],
   [CDK] : [
     {
@@ -270,7 +282,9 @@ const DOCS: {[key: string]: DocCategory[]} = {
 
 for (let category of DOCS[COMPONENTS]) {
   for (let doc of category.items) {
-    doc.packageName = 'material';
+    if (!doc.packageName) {
+      doc.packageName = 'material';
+    }
   }
 }
 
@@ -303,7 +317,7 @@ export class DocumentationItems {
   }
 
   getItemById(id: string, section: string): DocItem {
-    const sectionLookup = section == 'cdk' ? 'cdk' : 'material';
+    const sectionLookup = section == 'cdk' ? 'cdk' : id.startsWith('va-') ? 'vendasta' : 'material';
     return ALL_DOCS.find(doc => doc.id === id && doc.packageName == sectionLookup);
   }
 

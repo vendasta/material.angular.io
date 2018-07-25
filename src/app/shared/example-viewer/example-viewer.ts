@@ -40,19 +40,20 @@ export class ExampleViewer {
 
   @Input()
   set example(example: string) {
-    console.log(example);
-    console.log(EXAMPLE_COMPONENTS);
-    console.log(VENDASTA_EXAMPLE_COMPONENTS);
-    if (example && EXAMPLE_COMPONENTS[example]) {
+    if (example) {
       this._example = example;
-      this.exampleData = EXAMPLE_COMPONENTS[example];
-      this.selectedPortal = new ComponentPortal(this.exampleData.component);
-    } else if (example && VENDASTA_EXAMPLE_COMPONENTS[example]) {
-      this._example = example;
-      this.exampleData = VENDASTA_EXAMPLE_COMPONENTS[example];
-      this.selectedPortal = new ComponentPortal(this.exampleData.component);
+      if (EXAMPLE_COMPONENTS[example]) {
+        this.exampleData = EXAMPLE_COMPONENTS[example];
+      } else if (VENDASTA_EXAMPLE_COMPONENTS[example]) {
+        this.exampleData = VENDASTA_EXAMPLE_COMPONENTS[example];
+      } else {
+        console.log('Example component missing for: ', example);
+      }
     } else {
       console.log('MISSING EXAMPLE: ', example);
+    }
+    if (this.exampleData) {
+      this.selectedPortal = new ComponentPortal(this.exampleData.component);
     }
   }
 

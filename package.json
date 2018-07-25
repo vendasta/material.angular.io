@@ -32,6 +32,8 @@
     "@angular/platform-browser-dynamic": "6.0.0",
     "@angular/router": "6.0.0",
     "@angular/service-worker": "6.0.0",
+    "@ngx-translate/core": "^10.0.2",
+    "@vendasta/uikit": "^6.3.1",
     "core-js": "^2.5.6",
     "moment": "^2.22.1",
     "rxjs": "^6.1.0",

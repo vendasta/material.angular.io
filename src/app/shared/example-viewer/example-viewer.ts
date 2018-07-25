@@ -4,7 +4,14 @@ import {ComponentPortal} from '@angular/cdk/portal';
 
 import {EXAMPLE_COMPONENTS, LiveExample} from '@angular/material-examples';
 import {CopierService} from '../copier/copier.service';
+import {VaIconOverviewExample} from '../../../vendasta-example-components/va-icon-overview';
 
+const VENDASTA_EXAMPLE_COMPONENTS = {
+  'va-icon-overview': {
+    title: 'VaIcon example',
+    component: VaIconOverviewExample
+  },
+}
 
 @Component({
   selector: 'example-viewer',
@@ -33,9 +40,16 @@ export class ExampleViewer {
 
   @Input()
   set example(example: string) {
+    console.log(example);
+    console.log(EXAMPLE_COMPONENTS);
+    console.log(VENDASTA_EXAMPLE_COMPONENTS);
     if (example && EXAMPLE_COMPONENTS[example]) {
       this._example = example;
       this.exampleData = EXAMPLE_COMPONENTS[example];
+      this.selectedPortal = new ComponentPortal(this.exampleData.component);
+    } else if (example && VENDASTA_EXAMPLE_COMPONENTS[example]) {
+      this._example = example;
+      this.exampleData = VENDASTA_EXAMPLE_COMPONENTS[example];
       this.selectedPortal = new ComponentPortal(this.exampleData.component);
     } else {
       console.log('MISSING EXAMPLE: ', example);

@@ -12,11 +12,7 @@ export interface VersionInfo {
 /** Doc site versions. We update the urls and titles manually */
 export const docVersions: VersionInfo[] = [
   {
-    url: 'https://v5.material.angular.io/',
-    title: '5.2.5'
-  },
-  {
-    url: `https://material.angular.io/`,
+    url: `https://vendasta.com/style/`,
     title: materialVersion
   }
 ];

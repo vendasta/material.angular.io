@@ -35,7 +35,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
 import {GaService} from './shared/ga/ga';
-import { VendastaExampleModule } from '../vendasta-example-components/vendasta-examples.module';
+import {VendastaExampleModule} from '../vendasta-example-components/vendasta-examples.module';
 
 @NgModule({
   imports: [

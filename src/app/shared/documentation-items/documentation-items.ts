@@ -244,6 +244,7 @@ const DOCS: {[key: string]: DocCategory[]} = {
         {
           id: 'va-icon',
           name: 'VaIcon',
+          examples: ['va-icon-overview'],
           packageName: 'vendasta'
         },
       ]

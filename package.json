@@ -4,7 +4,7 @@
   "license": "MIT",
   "angular-cli": {},
   "scripts": {
-    "start": "npm run build-themes && ng serve",
+    "start": "npm run build-themes && ng serve --aot",
     "start-jit": "npm run build-themes && ng serve --aot=false",
     "lint": "tslint -p src/tsconfig.json",
     "test": "ng test",

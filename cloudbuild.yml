@@ -1,0 +1,43 @@
+
+secrets:
+- kmsKeyName: projects/repcore-prod/locations/global/keyRings/hal9000-password/cryptoKeys/hal9000-password
+  secretEnv:
+    HAL_9000_PASSWORD: "CiQAfhHSez95YDVQIxin7WvFszF9MhkusXlJLnudB4yIxffh5q4SSgDQgp8fYmnvUWrDuH72G5rveO4dXKuHXYNViysWzk0C8Kf1yLgEna0uDv0ImH3KvgyxNl1lCbCamD2YciEhwK86PhTQkTr2Vjtp"
+
+steps:
+# Build the alpine and wheezy versions.
+- name: 'gcr.io/repcore-prod/fecli:0.17.0'
+  entrypoint: 'bash'
+  args: ['-c', 'fecli login -e hal9000@vendasta.com -p $$HAL_9000_PASSWORD']
+  secretEnv: ['HAL_9000_PASSWORD']
+  id: 'fecli-login'
+  volumes:
+  - name: 'iam-creds'
+    path: '/root/.config/vstatic/'
+
+- name: 'gcr.io/repcore-prod/angular-cli:0.3.0'
+  args: ['npm', 'install']
+  id: 'npm-install'
+  waitFor: ['-']
+
+- name: 'gcr.io/repcore-prod/angular-cli:0.3.0'
+  args: ['npm', 'run', 'build-themes']
+  id: 'npm-build-themes'
+  waitFor: ['npm-install']
+
+- name: 'gcr.io/repcore-prod/angular-cli:0.3.0'
+  args: ['ng', 'build', '--', '--aot', '--prod', '--deploy-url=https://vstatic-prod.apigateway.co/social-marketing-client/']
+  id: 'ng-build-prod'
+  waitFor: ['npm-build-themes']
+
+- name: 'gcr.io/repcore-prod/fecli:0.17.0'
+  args: ['fecli', 'deploy', 'create', '-g', '$REVISION_ID', '-c', '$BUILD_ID', '-b', '$BRANCH_NAME', '--env=prod']
+  waitFor: ['npm-build-themes']
+  id: 'fecli-deploy-material-docs'
+  volumes:
+  - name: 'iam-creds'
+    path: '/root/.config/vstatic/'
+
+timeout: 1200s
+options:
+  machineType: N1_HIGHCPU_8

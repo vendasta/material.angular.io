@@ -37,10 +37,9 @@ rm -Rf ${docsContentPath}
 git clone ${docsContentRepoUrl} ${docsContentPath}
 
 # Set commit to the installed version of angular material
-# Currently set to 6.3.3
-# @TODO: Automate this part somehow?
+materialVersion=$(npm list @angular/material | tail -n 2 | head -n 1 | sed 's#.*/material@\(.*\)#\1#')
 cd ${docsContentPath}
-commitHash=30b5342cde71ad4b647971e68f8a40d11277216b
+commitHash=$(git log | grep "master" -B 4 | grep "changelog" -B 4 | grep ${materialVersion} -B 4 | grep "commit" | awk '{print $2} | head -n 1')
 git reset --hard ${commitHash}
 cd -
 

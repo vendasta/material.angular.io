@@ -45,9 +45,9 @@
                 "bundleName": "deeppurple-amber"
               },
               {
-                "input": "src/assets/indigo-pink.css",
+                "input": "src/assets/vendasta-theme.css",
                 "lazy": true,
-                "bundleName": "indigo-pink"
+                "bundleName": "vendasta-theme"
               },
               {
                 "input": "src/assets/purple-green.css",
@@ -121,9 +121,9 @@
                 "bundleName": "deeppurple-amber"
               },
               {
-                "input": "src/assets/indigo-pink.css",
+                "input": "src/assets/vendasta-theme.css",
                 "lazy": true,
-                "bundleName": "indigo-pink"
+                "bundleName": "vendasta-theme"
               },
               {
                 "input": "src/assets/purple-green.css",

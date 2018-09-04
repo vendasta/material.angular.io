@@ -45,6 +45,7 @@ import {
 import {BrowserModule} from '@angular/platform-browser';
 import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {UIKitModule} from '@vendasta/uikit';
 import {MaterialDocsExample} from './app/material-docs-example';
 
 @NgModule({
@@ -99,6 +100,7 @@ export class DemoMaterialModule {}
     DemoMaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    UIKitModule
   ],
   entryComponents: [MaterialDocsExample],
   declarations: [MaterialDocsExample],

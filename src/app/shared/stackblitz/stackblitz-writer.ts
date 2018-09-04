@@ -37,6 +37,8 @@ const dependencies = {
   '@angular/platform-browser': angularVersion,
   '@angular/platform-browser-dynamic': angularVersion,
   '@angular/router': angularVersion,
+  '@vendasta/uikit': '^6.3.1',
+  '@ngx-translate/core': '>=10.0.0',
   'angular-in-memory-web-api': '~0.5.0',
   'core-js': '^2.4.1',
   'rxjs': '>=6.0.0-beta.0 <7.0.0',
@@ -44,6 +46,7 @@ const dependencies = {
   'zone.js': '^0.8.14',
   'hammerjs': '^2.0.8',
   'moment': '^2.18.1',
+  'typescript': '^2.7.0'
 };
 
 /**

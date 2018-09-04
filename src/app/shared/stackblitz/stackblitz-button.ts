@@ -1,6 +1,6 @@
 import {Component, Input, NgModule} from '@angular/core';
 import {StackblitzWriter} from './stackblitz-writer';
-import {ExampleData} from '@angular/material-examples';
+import {ExampleData} from '../../../assets/stackblitz/examples';
 import {MatButtonModule, MatIconModule, MatTooltipModule} from '@angular/material';
 
 @Component({

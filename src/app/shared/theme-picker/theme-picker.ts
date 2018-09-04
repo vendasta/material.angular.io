@@ -21,17 +21,17 @@ export class ThemePicker {
 
   themes = [
     {
+      primary: '#424242',
+      accent: '#2E7D32',
+      href: 'vendasta-theme.css',
+      isDark: false,
+      isDefault: true,
+    },
+    {
       primary: '#673AB7',
       accent: '#FFC107',
       href: 'deeppurple-amber.css',
       isDark: false,
-    },
-    {
-      primary: '#3F51B5',
-      accent: '#E91E63',
-      href: 'indigo-pink.css',
-      isDark: false,
-      isDefault: true,
     },
     {
       primary: '#E91E63',

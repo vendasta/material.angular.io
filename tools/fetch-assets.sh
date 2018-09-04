@@ -34,7 +34,16 @@ mkdir -p ${materialExamplesDestination}
 rm -Rf ${docsContentPath}
 
 # Clone the docs-content repository.
-git clone ${docsContentRepoUrl} ${docsContentPath} --depth 1
+git clone ${docsContentRepoUrl} ${docsContentPath}
+
+# Set commit to the installed version of angular material
+materialVersion=$(npm list @angular/material | tail -n 2 | head -n 1 | sed 's#.*/material@\(.*\)#\1#' | tr -d '[:space:]')
+cd ${docsContentPath}
+commitHash=$(git log | grep "master" -B 4 | grep "changelog" -B 4 | grep ${materialVersion} -B 4 | grep "commit" | awk '{print $2}' | head -n 1)
+echo "Getting docs content from angular/material2-docs-content"
+echo "@angular/material version: ${materialVersion}, docs commit: ${commitHash}"
+git reset --hard ${commitHash}
+cd -
 
 # Copy all document assets (API, overview and guides).
 cp -R ${docsContentPath}/api ${documentsDestination}

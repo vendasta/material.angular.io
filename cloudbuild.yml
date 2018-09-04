@@ -37,7 +37,7 @@ steps:
 
 - name: 'gcr.io/repcore-prod/fecli:0.17.0'
   args: ['fecli', 'deploy', 'create', '-g', '$REVISION_ID', '-c', '$BUILD_ID', '-b', '$BRANCH_NAME', '--env=prod']
-  waitFor: ['npm-build-themes']
+  waitFor: ['ng-build-prod']
   id: 'fecli-deploy-material-docs'
   volumes:
   - name: 'iam-creds'

@@ -33,7 +33,7 @@ rm -Rf ${docsContentPath}
 mkdir tmp
 cd tmp
 git remote add material2 https://github.com/vendasta/material2
-git fetch --all
+git fetch material2
 latestCommit=$(git log material2/master | head -n 1 | awk '{print $2}')
 materialDocsFileUrl=$(curl -X GET "https://www.googleapis.com/storage/v1/b/vendasta-material-docs/o" | grep `git log material2/master | head -n 1 | awk '{print $2}'` | grep mediaLink | awk '{print $2}' | cut -d '"' -f 2)
 curl -X GET -o ./material-docs.tar.gz ${materialDocsFileUrl}

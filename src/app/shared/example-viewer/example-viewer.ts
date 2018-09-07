@@ -11,7 +11,7 @@ const VENDASTA_EXAMPLE_COMPONENTS = {
     title: 'VaIcon example',
     component: VaIconOverviewExample
   },
-}
+};
 
 @Component({
   selector: 'example-viewer',

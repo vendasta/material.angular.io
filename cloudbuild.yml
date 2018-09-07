@@ -26,11 +26,6 @@ steps:
   waitFor: ['npm-install']
 
 - name: 'gcr.io/repcore-prod/angular-cli:0.3.0'
-  args: ['./tools/fetch-assets.sh']
-  id: 'fetch-material-assets'
-  waitFor: ['npm-install']
-
-- name: 'gcr.io/repcore-prod/angular-cli:0.3.0'
   args: ['ng', 'build', '--aot', '--prod', '--deploy-url=https://vstatic-prod.apigateway.co/vendasta-material-docs/']
   id: 'ng-build-prod'
   waitFor: ['npm-build-themes', 'fetch-material-assets']

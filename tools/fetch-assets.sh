@@ -39,7 +39,7 @@ materialDocsFileUrl=$(curl -X GET "https://www.googleapis.com/storage/v1/b/venda
 curl -X GET -o ./material-docs.tar.gz ${materialDocsFileUrl}
 tar -xzvf material-docs.tar.gz
 rm -rf material-docs.tar.gz
-cd material2-docs-docsContentPath
+cd material2-docs-content
 docsContentPath=$(pwd)
 cd ../..
 

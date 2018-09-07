@@ -26,7 +26,7 @@ steps:
   waitFor: ['npm-install']
 
 - name: 'gcr.io/repcore-prod/angular-cli:0.3.0'
-  args: ['./tools/fetch-assets.sh']
+  args: ['npm', 'run', 'fetch-assets']
   id: 'fetch-material-assets'
   waitFor: ['npm-install']
 

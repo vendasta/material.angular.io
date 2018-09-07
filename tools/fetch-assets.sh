@@ -39,12 +39,12 @@ materialDocsFileUrl=$(curl -X GET "https://www.googleapis.com/storage/v1/b/venda
 curl -X GET -o ./material-docs.tar.gz ${materialDocsFileUrl}
 tar -xzvf material-docs.tar.gz
 rm -rf material-docs.tar.gz
-cd material2-docs-content
+cd material2-docs-docsContentPath
 docsContentPath=$(pwd)
 cd ../..
 
 # Copy all document assets (API, overview and guides).
-cp -R ${docsContentPath}/api/* ${documentsDestination}
+cp -R ${docsContentPath}/api/ ${documentsDestination}
 cp -R ${docsContentPath}/overview/ ${documentsDestination}
 cp -R ${docsContentPath}/guides ${documentsDestination}
 

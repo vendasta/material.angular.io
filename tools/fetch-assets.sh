@@ -40,6 +40,8 @@ curl -X GET -o ./material-docs.tar.gz ${materialDocsFileUrl}
 tar -xzvf material-docs.tar.gz
 rm -rf material-docs.tar.gz
 cd material2-docs-content
+echo "material2-docs-content unpacked to:"
+ls
 docsContentPath=$(pwd)
 cd ../..
 

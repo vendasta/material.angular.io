@@ -2,14 +2,22 @@ import {Component, Input} from '@angular/core';
 import {MatSnackBar} from '@angular/material';
 import {ComponentPortal} from '@angular/cdk/portal';
 
-import {EXAMPLE_COMPONENTS, LiveExample} from '@angular/material-examples';
+import {
+  EXAMPLE_COMPONENTS,
+  LiveExample,
+  VaIconOverviewExample,
+  VaBreadcrumbsOverviewExample
+} from '@angular/material-examples';
 import {CopierService} from '../copier/copier.service';
-import {VaIconOverviewExample} from '../../../vendasta-example-components/va-icon-overview';
 
 const VENDASTA_EXAMPLE_COMPONENTS = {
   'va-icon-overview': {
     title: 'VaIcon example',
     component: VaIconOverviewExample
+  },
+  'va-breadcrumbs-overview': {
+    title: 'VaBreadcrumbs example',
+    component: VaBreadcrumbsOverviewExample
   },
 };
 

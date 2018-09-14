@@ -247,6 +247,12 @@ const DOCS: {[key: string]: DocCategory[]} = {
           examples: ['va-icon-overview'],
           packageName: 'vendasta'
         },
+        {
+          id: 'va-breadcrumbs',
+          name: 'VaBreadcrumbs',
+          examples: ['va-breadcrumbs-overview'],
+          packageName: 'vendasta'
+        },
       ]
     },
   ],

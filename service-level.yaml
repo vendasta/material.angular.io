@@ -1,0 +1,6 @@
+services:
+ - name: vendasta-material-docs
+   platform: "Frontend: Angular"
+   language: typescript
+   availability: 0
+   owner: no-owner
